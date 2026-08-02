@@ -21,6 +21,7 @@ const MIME = {
   ".enc": "application/octet-stream",
   ".ico": "image/x-icon",
   ".svg": "image/svg+xml",
+  ".pdf": "application/pdf",
 };
 
 async function sendFile(res, filePath) {
