@@ -1,6 +1,7 @@
 import { createServer } from "node:http";
 import { readFile, stat } from "node:fs/promises";
 import { join, extname, normalize } from "node:path";
+import { createHash } from "node:crypto";
 
 const ROOT = process.cwd();
 const PORT = Number(process.env.PORT || 4173);
@@ -29,10 +30,14 @@ async function sendFile(res, filePath) {
     const info = await stat(filePath);
     if (!info.isFile()) throw new Error("not a file");
     const data = await readFile(filePath);
+    const hash = createHash("md5").update(data).digest("hex");
     res.writeHead(200, {
       "Content-Type": MIME[extname(filePath)] || "application/octet-stream",
       "Content-Length": data.length,
-      "Cache-Control": "no-cache",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      "Pragma": "no-cache",
+      "Expires": "0",
+      "ETag": `"${hash}"`,
     });
     res.end(data);
   } catch {
