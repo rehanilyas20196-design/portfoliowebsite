@@ -12,24 +12,35 @@
       (function(){
         var isMobile = window.innerWidth <= 768;
         if(!isMobile) return;
-        setTimeout(function(){
+        var count = 0;
+        function startCount(){
+          count++;
+          var counterEl = document.querySelector('.loading-content span');
           var ls = document.querySelector('.loading-screen');
           var btn = document.querySelector('.loading-wrap');
-          if(ls && getComputedStyle(ls).display !== 'none'){
-            if(btn){ btn.classList.add('loading-clicked'); }
-            ls.style.transition = 'opacity 0.8s ease-out';
-            ls.style.opacity = '0';
-            setTimeout(function(){
-              ls.style.display = 'none';
-              document.body.style.overflowY = 'auto';
-              var m = document.querySelector('main');
-              if(m) m.classList.add('main-active');
-              document.body.style.backgroundColor = '#0b080c';
-            }, 800);
+          if(counterEl) counterEl.textContent = count + '%';
+          if(count < 100){
+            setTimeout(startCount, 40 + Math.random()*60);
+          } else {
+            if(btn) btn.classList.add('loading-clicked');
+            if(ls){
+              ls.style.transition = 'opacity 0.8s ease-out';
+              ls.style.opacity = '0';
+              setTimeout(function(){
+                ls.style.display = 'none';
+                document.body.style.overflowY = 'auto';
+                document.body.style.overflow = 'auto';
+                var m = document.querySelector('main');
+                if(m) m.classList.add('main-active');
+                document.body.style.backgroundColor = '#0b080c';
+              }, 800);
+            }
           }
-        }, 10000);
+        }
+        setTimeout(startCount, 300);
       })();
     </script>
+
     <script type="module" crossorigin src="/assets/index-BeVrs9qr.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-three-BdgxNMf0.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-DgkQOziQ.js">
