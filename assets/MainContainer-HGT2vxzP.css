@@ -17,20 +17,53 @@
 }
 
 .about-me h3 {
-    font-size: 18px;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 4px;
-    font-weight: 400;
+    letter-spacing: 6px;
+    font-weight: 500;
     color: var(--accentColor);
-    margin-bottom: 15px
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 40px
+}
+
+.about-me h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accentColor), transparent)
 }
 
 .about-me p {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 26px;
-    letter-spacing: .5px;
-    word-spacing: 2px
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.9;
+    letter-spacing: .3px;
+    word-spacing: 1px;
+    color: rgba(255, 255, 255, .65);
+    padding: 28px 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .03) 0%, rgba(255, 255, 255, .01) 100%);
+    border: 1px solid rgba(255, 255, 255, .06);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px)
+}
+
+.about-me p::before {
+    content: "\201C";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-size: 48px;
+    font-family: Georgia, serif;
+    color: rgba(192, 132, 252, .15);
+    line-height: 1
 }
 
 .about-me .split-word {
@@ -48,35 +81,37 @@
     }
 
     .about-me {
-        width: 500px
+        width: 520px
     }
 
     .about-me h3 {
-        font-size: 22px;
-        letter-spacing: 6px
+        font-size: 15px;
+        letter-spacing: 8px
     }
 
     .about-me p {
-        font-size: 28px;
-        line-height: 32px
+        font-size: 16px;
+        line-height: 1.85;
+        padding: 32px 36px
     }
 }
 
 @media only screen and (min-width: 768px) {
     .about-me {
-        width: 500px;
+        width: 520px;
         max-width: calc(100% - 70px);
         transform: translateY(0)
     }
 
     .about-me h3 {
-        font-size: 25px;
-        letter-spacing: 7px
+        font-size: 16px;
+        letter-spacing: 10px
     }
 
     .about-me p {
-        font-size: 33px;
-        line-height: 36px
+        font-size: 17px;
+        line-height: 1.85;
+        padding: 36px 40px
     }
 
     .about-section {
@@ -96,19 +131,26 @@
 
     .about-me {
         padding: 0;
-        width: 50%
+        width: 48%
+    }
+
+    .about-me h3 {
+        font-size: 14px;
+        letter-spacing: 12px
     }
 
     .about-me p {
-        font-size: 1.9vw;
-        line-height: 2.3vw
+        font-size: 1.1vw;
+        line-height: 2vw;
+        padding: 40px 48px
     }
 }
 
 @media only screen and (min-width: 1950px) {
     .about-me p {
-        font-size: 2.5rem;
-        line-height: 2.7rem
+        font-size: 1.3rem;
+        line-height: 2.2rem;
+        padding: 48px 56px
     }
 }
 
@@ -711,7 +753,7 @@ a.contact-social:hover {
 
     .landing-info h3 {
         text-align: center;
-        display: none
+        display: block
     }
 
     .landing-info h2,
@@ -2074,7 +2116,13 @@ div.resume-button span {
         flex-direction: column;
         margin-left: 0;
         padding-right: 0;
-        gap: 0
+        gap: 0;
+        overflow: hidden
+    }
+
+    .work-flex:before,
+    .work-flex:after {
+        display: none
     }
 
     .work-box {
@@ -2751,4 +2799,236 @@ div.resume-button span {
     background-clip: text;
     filter: drop-shadow(0 0 30px rgba(192, 132, 252, 0.3));
     animation: fadeSlideUp3D 1s ease-out 1.1s both
+}
+
+@media only screen and (max-width: 899px) {
+    .whatIDO {
+        padding-bottom: 100px
+    }
+
+    .career-section {
+        margin-bottom: 40px
+    }
+
+    .certificates-section {
+        padding-bottom: 130px
+    }
+
+    .cta-section {
+        padding-bottom: 130px
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .landing-intro h1 {
+        font-size: 26px;
+        line-height: 1.3
+    }
+
+    .landing-intro h2 {
+        font-size: 15px
+    }
+
+    .landing-h2-1 {
+        font-size: 20px
+    }
+
+    .landing-h2-info {
+        font-size: 16px
+    }
+
+    .landing-info h3 {
+        font-size: 15px
+    }
+
+    h2.landing-info-h2 {
+        font-size: 22px
+    }
+
+    .about-me h3 {
+        font-size: 15px;
+        letter-spacing: 3px
+    }
+
+    .about-me p {
+        font-size: 17px;
+        line-height: 23px
+    }
+
+    .career-section h2 {
+        font-size: 34px;
+        line-height: 36px
+    }
+
+    .career-info h3 {
+        font-size: 28px
+    }
+
+    .career-info h4 {
+        font-size: 17px
+    }
+
+    .career-info h5 {
+        font-size: 15px
+    }
+
+    .career-info-box p {
+        font-size: 13px
+    }
+
+    .what-box h2 {
+        font-size: 42px;
+        line-height: 40px
+    }
+
+    .what-box-in {
+        height: 420px
+    }
+
+    .what-content h3 {
+        font-size: 22px
+    }
+
+    .what-content p {
+        font-size: 12px;
+        line-height: 16px
+    }
+
+    .work-section h2 {
+        font-size: 30px
+    }
+
+    .work-title h3 {
+        font-size: 24px;
+        line-height: 26px
+    }
+
+    .work-info h4 {
+        font-size: 17px
+    }
+
+    .work-info p {
+        font-size: 13px
+    }
+
+    .contact-section h3 {
+        font-size: 32px
+    }
+
+    .contact-box h2 {
+        font-size: 15px
+    }
+
+    .techstack-content h2 {
+        font-size: 30px
+    }
+
+    .certificates-content h2 {
+        font-size: 30px
+    }
+
+    .cta-heading {
+        font-size: 28px
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .landing-intro {
+        padding-top: 30px
+    }
+
+    .landing-intro h1 {
+        font-size: 22px;
+        line-height: 1.4
+    }
+
+    .landing-h2-1 {
+        font-size: 18px
+    }
+
+    .landing-h2-info {
+        font-size: 14px
+    }
+
+    .landing-info h3 {
+        font-size: 13px
+    }
+
+    h2.landing-info-h2 {
+        font-size: 19px
+    }
+
+    .about-me h3 {
+        font-size: 13px;
+        letter-spacing: 2px
+    }
+
+    .about-me p {
+        font-size: 15px;
+        line-height: 21px
+    }
+
+    .career-section h2 {
+        font-size: 28px;
+        line-height: 30px
+    }
+
+    .career-info h3 {
+        font-size: 24px
+    }
+
+    .career-info h4 {
+        font-size: 15px
+    }
+
+    .what-box h2 {
+        font-size: 35px;
+        line-height: 33px
+    }
+
+    .what-box-in {
+        height: 370px
+    }
+
+    .what-content h3 {
+        font-size: 20px
+    }
+
+    .what-content p {
+        font-size: 11px
+    }
+
+    .work-section h2 {
+        font-size: 26px
+    }
+
+    .work-title h3 {
+        font-size: 22px;
+        line-height: 24px
+    }
+
+    .contact-section h3 {
+        font-size: 26px
+    }
+
+    .techstack-content h2 {
+        font-size: 26px
+    }
+
+    .certificates-content h2 {
+        font-size: 26px
+    }
+
+    .cta-heading {
+        font-size: 24px
+    }
+
+    .header ul {
+        gap: 8px;
+        font-size: 10px
+    }
+
+    .navbar-title {
+        font-size: 11px
+    }
 }
