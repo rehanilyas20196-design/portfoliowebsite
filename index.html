@@ -49,25 +49,37 @@
     <link rel="stylesheet" crossorigin href="/assets/index-Dy5XKj18.css">
     <link rel="stylesheet" href="/assets/Navbar-BnKDS5-F.css?v=2">
     <style>
-      @media only screen and (max-width: 499px) {
-        .header { width: 100vw; max-width: 100vw; padding: 10px 8px; box-sizing: border-box; justify-content: space-between; position: fixed; left: 0 !important; right: 0; transform: none !important; flex-wrap: wrap; row-gap: 8px }
-        .navbar-title { width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px; font-weight: 800; letter-spacing: 0; flex-shrink: 0; background: linear-gradient(135deg, rgba(194,164,255,.28), rgba(125,211,252,.18)); border: 1px solid rgba(194,164,255,.5); -webkit-text-fill-color: #fff; background-clip: border-box; -webkit-background-clip: border-box; box-shadow: 0 0 16px rgba(194,164,255,.35) }
-        .header ul { display: flex !important; flex-wrap: wrap; justify-content: center; column-gap: 6px; row-gap: 6px; flex-shrink: 1; min-width: 0; max-width: 100% }
-        .header ul li { font-size: 7px; letter-spacing: 1px; font-weight: 500; color: rgba(255,255,255,.55); transition: color .3s ease, background .3s ease, border-color .3s ease; white-space: nowrap; padding: 4px 10px; flex-shrink: 0; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; background: rgba(255,255,255,.04) }
-        .header ul li:first-child, .header ul li:last-child { padding-left: 10px; padding-right: 10px }
-        .header ul li:hover { color: #fff; background: rgba(194,164,255,.14); border-color: rgba(194,164,255,.45) }
-        .header ul li a { padding-bottom: 0 }
-        .header ul li a::after { display: none }
+      @media only screen and (max-width: 768px) {
+        .header { width: 100vw; max-width: 100vw; padding: 12px 16px; box-sizing: border-box; justify-content: space-between; position: fixed; left: 0 !important; right: 0; transform: none !important; flex-wrap: nowrap }
+        .navbar-title { width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px; font-weight: 800; letter-spacing: 0; flex-shrink: 0; background: linear-gradient(135deg, rgba(194,164,255,.28), rgba(125,211,252,.18)); border: 1px solid rgba(194,164,255,.5); -webkit-text-fill-color: #fff; background-clip: border-box; -webkit-background-clip: border-box; box-shadow: 0 0 16px rgba(194,164,255,.35) }
+        .header ul { display: none !important }
+        .hamburger { display: flex !important; flex-direction: column; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); cursor: pointer; position: relative; z-index: 10002; -webkit-tap-highlight-color: transparent }
+        .hamburger span, .hamburger span::before, .hamburger span::after { content: ""; display: block; width: 20px; height: 2px; border-radius: 2px; background: #fff; transition: transform .35s cubic-bezier(.65,.05,.36,1), opacity .3s ease }
+        .hamburger span { position: relative }
+        .hamburger span::before, .hamburger span::after { position: absolute; left: 0 }
+        .hamburger span::before { top: -7px }
+        .hamburger span::after { top: 7px }
+        .hamburger.active span { background: transparent }
+        .hamburger.active span::before { transform: translateY(7px) rotate(45deg) }
+        .hamburger.active span::after { transform: translateY(-7px) rotate(-45deg) }
+        .mobile-overlay { position: fixed; inset: 0; z-index: 10000; display: flex !important; align-items: center; justify-content: center; background: rgba(11,8,12,.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease }
+        .mobile-overlay.open { opacity: 1; visibility: visible }
+        .mobile-menu { display: block !important; position: relative; width: 86%; max-width: 360px; background: rgba(20,16,24,.95); border: 1px solid rgba(194,164,255,.2); border-radius: 22px; padding: 30px 20px 24px; box-shadow: 0 30px 80px rgba(0,0,0,.65); transform: translateY(16px) scale(.97); transition: transform .35s cubic-bezier(.65,.05,.36,1); text-align: center }
+        .mobile-overlay.open .mobile-menu { transform: translateY(0) scale(1) }
+        .mobile-close { position: absolute; top: 12px; right: 14px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); color: #fff; font-size: 17px; line-height: 1; cursor: pointer }
+        .mobile-menu ul { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px }
+        .mobile-menu ul li { margin: 0 }
+        .mobile-menu ul li a { display: block; padding: 12px 14px; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.72); border-radius: 12px; transition: color .3s ease, background .3s ease, transform .3s ease }
+        .mobile-menu ul li a:hover { color: #fff; background: rgba(194,164,255,.14) }
         main [id], .section-container[id] { scroll-margin-top: 100px }
-        .hamburger { display: none !important }
-        .mobile-overlay { display: none !important }
-        .mobile-overlay.open { display: none !important }
-        .mobile-menu { display: none !important }
       }
       @media only screen and (max-width: 768px) {
         .landing-info-h2:after { display: none !important }
-        .landing-h2-1 .split-h2, .landing-h2-info .split-h2, .landing-h2-info-1 .split-h2 { display: block !important; white-space: normal !important; flex-wrap: wrap !important; text-align: center; max-width: 100% }
+        .landing-h2-1 .split-h2, .landing-h2-info .split-h2, .landing-h2-info-1 .split-h2 { display: block !important; white-space: normal !important; flex-wrap: wrap !important; text-align: center !important; max-width: 100% !important; width: 100% !important }
         .landing-h2-1 .split-h2 .split-char, .landing-h2-info .split-h2 .split-char, .landing-h2-info-1 .split-h2 .split-char { display: inline-block !important }
+        h2.landing-info-h2, .landing-h2-1, .landing-h2-info { width: 100% !important; margin-left: auto !important; margin-right: auto !important; text-align: center !important }
+        .cta-buttons { flex-direction: column !important; align-items: center !important; width: 100% !important; gap: 15px !important }
+        .cta-btn { width: 100% !important; max-width: 360px !important; justify-content: center !important; margin: 0 auto !important }
         .loading-header { display: none !important }
       }
     </style>
