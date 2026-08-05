@@ -3033,3 +3033,19 @@ div.resume-button span {
         font-size: 11px
     }
 }
+@media only screen and (max-width: 768px) {
+    .landing-h2-1 .split-h2,
+    .landing-h2-info .split-h2,
+    .landing-h2-info-1 .split-h2 {
+        display: block !important;
+        white-space: normal !important;
+        flex-wrap: wrap !important;
+        text-align: center;
+        max-width: 100%
+    }
+    .landing-h2-1 .split-h2 .split-char,
+    .landing-h2-info .split-h2 .split-char,
+    .landing-h2-info-1 .split-h2 .split-char {
+        display: inline-block !important
+    }
+}
